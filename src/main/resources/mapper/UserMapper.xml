@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chenhl.shardingjdbcdemo.mapper.UserMapper">
+
+    <sql id="Base_Column_List">
+    user_id, user_name
+    </sql>
+
+
+    <select id="selectList"  resultType="com.chenhl.shardingjdbcdemo.domain.User">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user
+    </select>
+
+    <insert id="insert" parameterType="com.chenhl.shardingjdbcdemo.domain.User">
+        insert user (user_id, user_name) value (#{userId}, #{userName})
+    </insert>
+
+
+</mapper>

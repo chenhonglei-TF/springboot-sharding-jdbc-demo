@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chenhl.shardingjdbcdemo.mapper.HealthTaskMapper">
+
+    <sql id="Base_Column_List">
+    task_id,user_id, record_id,task_name
+    </sql>
+
+
+    <insert id="insert" parameterType="com.chenhl.shardingjdbcdemo.domain.HealthTask" useGeneratedKeys="true" keyProperty="taskId">
+        insert health_task (user_id, record_id,task_name)
+        value (#{userId}, #{recordId},#{taskName})
+    </insert>
+
+
+</mapper>
