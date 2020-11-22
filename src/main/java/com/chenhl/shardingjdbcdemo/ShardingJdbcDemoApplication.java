@@ -20,9 +20,9 @@ public class ShardingJdbcDemoApplication {
 
     public static void main(final String[] args) throws SQLException, IOException {
         try (ConfigurableApplicationContext applicationContext = SpringApplication.run(ShardingJdbcDemoApplication.class, args)) {
-//            UserService userService = applicationContext.getBean(UserService.class);
-//            userService.processUsers();
-//            userService.getUsers();
+            UserService userService = applicationContext.getBean(UserService.class);
+            userService.processUsers();
+            userService.getUsers();
 
         	HealthLevelService healthLevelService = applicationContext.getBean(HealthLevelService.class);
         	healthLevelService.processLevels();
