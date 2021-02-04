@@ -1,5 +1,6 @@
 package com.chenhl.shardingjdbcdemo;
 
+import com.chenhl.shardingjdbcdemo.domain.User;
 import com.chenhl.shardingjdbcdemo.hint.HintService;
 import com.chenhl.shardingjdbcdemo.service.HealthLevelService;
 import com.chenhl.shardingjdbcdemo.service.HealthRecordService;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @MapperScan(basePackages = {"com.chenhl.shardingjdbcdemo.mapper"})
 @SpringBootApplication
@@ -22,9 +24,12 @@ public class ShardingJdbcDemoApplication {
         try (ConfigurableApplicationContext applicationContext = SpringApplication.run(ShardingJdbcDemoApplication.class, args)) {
             UserService userService = applicationContext.getBean(UserService.class);
             userService.processUsers();
-            userService.getUsers();
+            List<User> users = userService.getUsers();
+            users.forEach(System.out::println);
 
-        	HealthLevelService healthLevelService = applicationContext.getBean(HealthLevelService.class);
+
+
+            HealthLevelService healthLevelService = applicationContext.getBean(HealthLevelService.class);
         	healthLevelService.processLevels();
 
         	HealthRecordService healthRecordService = applicationContext.getBean(HealthRecordService.class);
