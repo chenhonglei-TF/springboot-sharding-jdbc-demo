@@ -4,5 +4,5 @@ import java.sql.SQLException;
 
 public interface HealthLevelService {
 
-	public void processLevels() throws SQLException;
+	public void processLevels();
 }

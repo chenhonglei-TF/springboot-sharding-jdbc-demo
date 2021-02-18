@@ -21,25 +21,26 @@ import java.util.List;
 public class ShardingJdbcDemoApplication {
 
     public static void main(final String[] args) throws SQLException, IOException {
-        try (ConfigurableApplicationContext applicationContext = SpringApplication.run(ShardingJdbcDemoApplication.class, args)) {
-            UserService userService = applicationContext.getBean(UserService.class);
-            userService.processUsers();
-            List<User> users = userService.getUsers();
-            users.forEach(System.out::println);
-
-
-
-            HealthLevelService healthLevelService = applicationContext.getBean(HealthLevelService.class);
-        	healthLevelService.processLevels();
-
-        	HealthRecordService healthRecordService = applicationContext.getBean(HealthRecordService.class);
-        	healthRecordService.processHealthRecords();
+        SpringApplication.run(ShardingJdbcDemoApplication.class, args);
+//        try (ConfigurableApplicationContext applicationContext = SpringApplication.run(ShardingJdbcDemoApplication.class, args)) {
+//            UserService userService = applicationContext.getBean(UserService.class);
+//            userService.processUsers();
+//            List<User> users = userService.getUsers();
+//            users.forEach(System.out::println);
+//
+//
+//
+//            HealthLevelService healthLevelService = applicationContext.getBean(HealthLevelService.class);
+//        	healthLevelService.processLevels();
+//
+//        	HealthRecordService healthRecordService = applicationContext.getBean(HealthRecordService.class);
+//        	healthRecordService.processHealthRecords();
 
 //        	HintService hintService = applicationContext.getBean(HintService.class);
 //        	hintService.processWithHintValueForShardingDatabases();
 //        	hintService.processWithHintValueForShardingDatabasesAndTables();
 //        	hintService.processWithHintValueMaster();
-        }
+//        }
     }
 
 }

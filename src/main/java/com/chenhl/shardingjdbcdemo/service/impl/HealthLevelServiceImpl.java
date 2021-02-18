@@ -15,7 +15,7 @@ public class HealthLevelServiceImpl implements HealthLevelService {
     HealthLevelMapper healthLevelMapper;
 
     @Override
-    public void processLevels() throws SQLException {
+    public void processLevels()  {
         for (int i = 1; i <= 5; i++) {
             healthLevelMapper.insert(new HealthLevel((long)i, "level"+i));
         }
